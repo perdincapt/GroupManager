@@ -242,7 +242,7 @@ def adminlist(bot, update):
             name = user.first_name + (user.last_name or "") + tld(chat.id, " (Creator)")
         else:
             name = user.first_name + (user.last_name or "")
-        text += f"\n• `{name}`"
+        text += f"\n• `{mention}`"
 
     update.effective_message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
 
