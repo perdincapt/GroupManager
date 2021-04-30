@@ -43,7 +43,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text(tld(chat.id, "I'm not muting myself!"))
+        message.reply_text(tld(chat.id, "GAUSA MUTE GUA NGENTOT!"))
         return ""
 
     member = chatD.get_member(int(user_id))
@@ -54,7 +54,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
             message.reply_text(tld(chat.id, "No! I'm not muting bot sudoers! That would be a pretty dumb idea."))
 
         elif is_user_admin(chatD, user_id, member=member):
-            message.reply_text(tld(chat.id, "No! I'm not muting chat administrator! That would be a pretty dumb idea."))
+            message.reply_text(tld(chat.id, "Et bego gua mana bisa mute admin ajg!"))
 
         elif member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chatD.id, user_id, can_send_messages=False)
@@ -69,7 +69,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
                                               mention_html(member.user.id, member.user.first_name))
 
         else:
-            message.reply_text(tld(chat.id, "This user is already muted in {}!").format(chatD.title))
+            message.reply_text(tld(chat.id, "MAMPUS LU GUA MUTE! {}!").format(chatD.title))
     else:
         message.reply_text(tld(chat.id, "This user isn't in the {}!").format(chatD.title))
 
@@ -105,7 +105,7 @@ def unmute(bot: Bot, update: Update, args: List[str]) -> str:
     if member.status != 'kicked' and member.status != 'left':
         if member.can_send_messages and member.can_send_media_messages \
                 and member.can_send_other_messages and member.can_add_web_page_previews:
-            message.reply_text(tld(chat.id, "This user already has the right to speak in {}.").format(chatD.title))
+            message.reply_text(tld(chat.id, "NAH SEKARANG COBA NGOMONG {}.").format(chatD.title))
         else:
             bot.restrict_chat_member(chatD.id, int(user_id),
                                      can_send_messages=True,
@@ -164,11 +164,11 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_admin(chat, user_id, member):
-        message.reply_text(tld(chat.id, "I really wish I could mute admins..."))
+        message.reply_text(tld(chat.id, "DEMI ALEK LAKO BISA GUA MUTE ADMIN UDAH GUA MUTE..."))
         return ""
 
     if user_id == bot.id:
-        message.reply_text(tld(chat.id, "I'm not gonna MUTE myself, are you crazy?"))
+        message.reply_text(tld(chat.id, "GILA LU MAU MUTE GUA?"))
         return ""
 
     if not reason:
