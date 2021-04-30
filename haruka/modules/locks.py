@@ -108,7 +108,7 @@ def lock(bot: Bot, update: Update, args: List[str]) -> str:
         if len(args) >= 1:
             if args[0] in LOCK_TYPES:
                 sql.update_lock(chat.id, args[0], locked=True)
-                message.reply_text(tld(chat.id, "Locked {} messages for all non-admins!").format(args[0]))
+                message.reply_text(tld(chat.id, "Mengunci {} Pesan Untuk Semua Kecuali Admin:)").format(args[0]))
 
                 return "<b>{}:</b>" \
                        "\n#LOCK" \
@@ -122,7 +122,7 @@ def lock(bot: Bot, update: Update, args: List[str]) -> str:
                     members = users_sql.get_chat_members(str(chat.id))
                     restr_members(bot, chat.id, members, messages=True, media=True, other=True)
 
-                message.reply_text(tld(chat.id, "Locked {} for all non-admins!").format(args[0]))
+                message.reply_text(tld(chat.id, "Mengunci {} Pesan Untuk Semua Kecuali Admin:)").format(args[0]))
                 return "<b>{}:</b>" \
                        "\n#LOCK" \
                        "\n<b>Admin:</b> {}" \
